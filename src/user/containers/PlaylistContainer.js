@@ -30,6 +30,19 @@ function PlaylistContainer(userID = 5) {
         .then(console.log(currentPlaylistSongs));
     })
 
+    // useEffect(() => { 
+    //     fetch("http://localhost:8080/playlist", {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //             },
+    //         })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const playlistIDs = 
+    //     })
+    // }
+
     //display playlist at playlists[0]
 
 
