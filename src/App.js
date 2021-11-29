@@ -5,12 +5,13 @@ import AdminPage from "./admin/AdminPage";
 import {Routes, Route, Link} from "react-router-dom";
 
 function App() {
+
   return (
     <div className="App">
       <Routes>
-        <Route exact path="/" component={LoginPage}/>
-        <Route exact path="/userpage" component={UserPage}/>
-        <Route exact path="/adminpage" component={AdminPage}/>
+        <Route path="/" element={LoginPage}/>
+        <Route path="/userpage" element={<UserPage/>}/>
+        <Route path="/adminpage" element={<AdminPage/>}/>
       </Routes>
     </div>
   );
