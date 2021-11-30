@@ -6,7 +6,7 @@ import FastForwardButton from '../components/playlist/FastForwardButton';
 import SearchBar from '../components/playlist/SearchBar';
 
 
-function PlaylistContainer(userID = 5) {
+function PlaylistContainer(userId = 5) {
 
     const [playlists, setPlaylists] = useState([]);
     const [playlistIds, setPlaylistIds] = useState([])
