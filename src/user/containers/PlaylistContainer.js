@@ -49,7 +49,6 @@ function PlaylistContainer(userID = 5) {
             data.forEach(song => (idObject[song.playlist] = 1))
             idArray = Object.keys(idObject)
             .map(key => (parseInt(key)));
-            console.log(idArray)
             setPlaylistIds(idArray)
             setFilteredPlaylistIds(idArray);
         })
@@ -63,20 +62,27 @@ function PlaylistContainer(userID = 5) {
     // }
 
 
-    function fastForwardPlaylist() {
+    const fastForwardPlaylist = () => {
 
-        const skippedPlaylist = filteredPlaylistIds.shift();
-        filteredPlaylistIds.push(skippedPlaylist);
+        const playlistToBeModified = [...filteredPlaylistIds]
 
-        setFilteredPlaylistIds(...filteredPlaylistIds);
+        const skippedPlaylist = playlistToBeModified.shift();
+        playlistToBeModified.push(skippedPlaylist);
+
+        setFilteredPlaylistIds(playlistToBeModified);
+        console.log(playlistToBeModified)
 
     }
 
-    function rewindPlaylist() {
-        const lastPlaylist = filteredPlaylistIds.pop();
-        filteredPlaylistIds.unshift(lastPlaylist);
+    const rewindPlaylist = () => {
 
-        setFilteredPlaylistIds(...filteredPlaylistIds);
+        const playlistToBeModified = [...filteredPlaylistIds]
+
+        const lastPlaylist = playlistToBeModified.pop();
+        playlistToBeModified.unshift(lastPlaylist);
+
+        setFilteredPlaylistIds(filteredPlaylistIds);
+        console.log(playlistToBeModified)
     }
 
     function searchForSong(event) {
@@ -100,8 +106,6 @@ function PlaylistContainer(userID = 5) {
         })
 
         setFilteredPlaylistIds(currentFilteredPlaylistIds);
-        console.log(`Hi ${playlistIds}`);
-        console.log(filteredPlaylistIds);
 
     }
 
@@ -115,8 +119,8 @@ function PlaylistContainer(userID = 5) {
                 {playlists.length > 0 ?
                     <div>
                         <SearchBar searchForSong = {searchForSong} />
-                        <RewindButton fastForwardPlaylist={fastForwardPlaylist}/>
-                        <FastForwardButton rewindPlaylist = {rewindPlaylist}/>
+                        <RewindButton handleClick={fastForwardPlaylist}/>
+                        <FastForwardButton handleClick= {rewindPlaylist}/>
                         <Playlist playlists = {playlists} playlistIds = {filteredPlaylistIds}/>
                     </div>
                 :

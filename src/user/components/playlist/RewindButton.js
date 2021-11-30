@@ -1,9 +1,9 @@
 import React from 'react'
 
-function RewindButton({rewindPlaylist}) {
+function RewindButton({handleClick}) {
     return (
         <div>
-            <button onClick={rewindPlaylist}>
+            <button type = "button" onClick={handleClick}>
                 <img src="../../../images/back-arrow" alt ="backArrow"/>
             </button>
         </div>
