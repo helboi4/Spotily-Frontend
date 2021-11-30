@@ -78,11 +78,12 @@ function PlaylistContainer(userID = 5) {
 
         const playlistToBeModified = [...filteredPlaylistIds]
 
+
+
         const lastPlaylist = playlistToBeModified.pop();
         playlistToBeModified.unshift(lastPlaylist);
 
-        setFilteredPlaylistIds(filteredPlaylistIds);
-        console.log(playlistToBeModified)
+        setFilteredPlaylistIds(playlistToBeModified);
     }
 
     function searchForSong(event) {
@@ -119,8 +120,8 @@ function PlaylistContainer(userID = 5) {
                 {playlists.length > 0 ?
                     <div>
                         <SearchBar searchForSong = {searchForSong} />
-                        <RewindButton handleClick={fastForwardPlaylist}/>
-                        <FastForwardButton handleClick= {rewindPlaylist}/>
+                        <RewindButton handleClick= {rewindPlaylist} />
+                        <FastForwardButton handleClick={fastForwardPlaylist}/>
                         <Playlist playlists = {playlists} playlistIds = {filteredPlaylistIds}/>
                     </div>
                 :
