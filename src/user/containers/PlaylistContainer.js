@@ -70,7 +70,6 @@ function PlaylistContainer(userID = 5) {
         playlistToBeModified.push(skippedPlaylist);
 
         setFilteredPlaylistIds(playlistToBeModified);
-        console.log(playlistToBeModified)
 
     }
 
@@ -115,18 +114,17 @@ function PlaylistContainer(userID = 5) {
 
     return (
 
-        <div>
-            <>
+        <div className="playlist-container">
                 {playlists.length > 0 ?
                     <div>
-                        <SearchBar searchForSong = {searchForSong} />
-                        <RewindButton handleClick= {rewindPlaylist} />
-                        <FastForwardButton handleClick={fastForwardPlaylist}/>
-                        <Playlist playlists = {playlists} playlistIds = {filteredPlaylistIds}/>
+                            <SearchBar searchForSong = {searchForSong} /> 
+                            <RewindButton handleClick= {rewindPlaylist} />
+                            <h1 className="playlist-name">{`Playlist ${filteredPlaylistIds[0]}`}</h1>
+                            <FastForwardButton handleClick={fastForwardPlaylist}/>
+                            <Playlist playlists = {playlists} playlistIds = {filteredPlaylistIds}/>
                     </div>
                 :
                 <p>Loading...</p>}
-            </>
         </div>
     );
 }

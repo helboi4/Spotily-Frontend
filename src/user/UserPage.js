@@ -1,13 +1,14 @@
 import React from 'react';
 import PlaylistContainer from './containers/PlaylistContainer';
+import './User.css';
 
 
 
 function UserPage() {
     return (
-        <div>
+        <div className="user-page">
             <h1>Yo</h1>
-            <PlaylistContainer />
+                <PlaylistContainer/> 
         </div>
     )
 }

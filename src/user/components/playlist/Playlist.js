@@ -5,7 +5,7 @@ const Playlist = ({playlists, playlistIds}) => {
 
     if (!playlistIds) {
         return (
-            <div>
+            <div className="playlist-songs">
                 No playlists with this song
             </div>
         )
@@ -15,12 +15,12 @@ const Playlist = ({playlists, playlistIds}) => {
         .filter(song => (song.playlist === playlistIds[0]))
         .map(song => {
             return(
-                <Song song={song}/>
+                <Song className="song" song={song}/>
             )
         });
 
         return(
-            <div className="playlist">{playlistComponents}</div>
+            <div className="playlist-songs">{playlistComponents}</div>
         )
 
         

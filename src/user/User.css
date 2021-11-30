@@ -1,0 +1,39 @@
+
+/* .user-page {
+    display: flex;
+    justify-content: flex-end;
+} */
+
+
+.playlist-container {
+    width: 45%;
+    background-color: blue;
+    float: right;
+    display: grid;
+    justify-content: center;
+    grid-template-areas: "search search search"
+                         "back playlist-name next"
+                         "playlist-songs playlist-songs playlist-songs";
+    
+}
+
+.playlist-container > .back {
+    grid-area: back;
+}
+
+.playlist-container > .playlist-name {
+    grid-area: playlist-name;
+}
+
+.playlist-container > .next {
+    grid-area: next;
+} 
+
+.playlist-container > .search {
+    grid-area: search;
+}
+
+.playlist-container > .playlist-songs {
+    grid-area: playlist-songs;
+}
+
