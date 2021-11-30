@@ -12,27 +12,6 @@ function PlaylistContainer(userID = 5) {
     const [playlistIds, setPlaylistIds] = useState([])
     const [filteredPlaylistIds, setFilteredPlaylistIds] = useState([]);
 
-    // useEffect(() => {
-    //     fetch("http://localhost:8080/playlist", {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => setPlaylists(data.filter((p) => p.id === userID)))
-    //     .then(fetch(`http://localhost:8080/playlist/${playlists[0].id}`, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //     })
-    //     .then(response => response.json()))
-    //     .then(data => setCurrentPlaylistSongs(data))
-        
-    //     .then(console.log(playlists))
-    //     .then(console.log(currentPlaylistSongs));
-    // })
 
     useEffect(() => { 
         fetch("http://localhost:8080/playlist", {
@@ -54,12 +33,6 @@ function PlaylistContainer(userID = 5) {
         })
 
     }, []);
-
-    // //display playlist at playlists[0]
-    // const selectCurrentPlaylist = (playlists, playlistIds, playlistSelector) => {
-        
-
-    // }
 
 
     const fastForwardPlaylist = () => {
