@@ -12,6 +12,8 @@ const Playlist = ({playlists, playlistIds}) => {
         )
     } 
     else {
+        console.log(playlists)
+        console.log(playlistIds)
         const playlistComponents = playlists
         .filter(song => (song.playlist === playlistIds[0]))
         .map(song => {
@@ -19,12 +21,15 @@ const Playlist = ({playlists, playlistIds}) => {
                 <Song song={song}/>
             )
         });
+        console.log(playlistComponents)
 
         return(
             <div className="playlist">{playlistComponents}</div>
         )
-    }
 
+        
+    }
+    
 }
 
 export default Playlist;

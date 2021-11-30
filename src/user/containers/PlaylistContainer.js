@@ -81,7 +81,7 @@ function PlaylistContainer(userID = 5) {
 
     function searchForSong(event) {
 
-        const searchTerm = event.target.value.toLowerCase();
+        let searchTerm = event.target.value.toLowerCase();
 
         let playlistWithSong = {};
 
@@ -99,7 +99,7 @@ function PlaylistContainer(userID = 5) {
             }
         })
 
-        setFilteredPlaylistIds(...currentFilteredPlaylistIds);
+        setFilteredPlaylistIds(currentFilteredPlaylistIds);
         console.log(`Hi ${playlistIds}`);
         console.log(filteredPlaylistIds);
 
