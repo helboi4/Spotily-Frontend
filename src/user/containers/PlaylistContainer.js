@@ -87,9 +87,9 @@ function PlaylistContainer(userID = 5) {
 
     return (
 
-        <div className="playlist-container">
+        <div>
                 {playlists.length > 0 ?
-                    <div>
+                    <div className="playlist-container">
                             <SearchBar searchForSong = {searchForSong} /> 
                             <RewindButton handleClick= {rewindPlaylist} />
                             <h1 className="playlist-name">{`Playlist ${filteredPlaylistIds[0]}`}</h1>

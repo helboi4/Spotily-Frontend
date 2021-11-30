@@ -31,6 +31,7 @@ export default function QuizContainer() {
 
     return (
         <div>
+            
             <QuizModal questions={questions} show={showQuiz} handleClose={hideQuizModal}/>
         </div>
     )
