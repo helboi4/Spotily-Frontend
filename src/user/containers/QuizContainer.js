@@ -8,6 +8,7 @@ export default function QuizContainer() {
 
     const[questions, setQuestions] = useState()
     const[showQuiz, setShowQuiz] = useState(true)
+    const[userResponseList, setUserResponseList] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:8080/api/quiz/getquiz", {
@@ -17,9 +18,19 @@ export default function QuizContainer() {
                 },
             })
             .then(response => response.json())
-            .then(data => (setQuestions(data)))
-            console.log(questions)
+            .then(data => {
+                setQuestions(data);
+                initialiseEmptyUserResponseArray(data)})
     },[]);
+
+    const initialiseEmptyUserResponseArray = (data) => {
+        if (data.questionsAndOptions) {
+
+            let emptyUserResponses = Array(Object.keys(data.questionsAndOptions).length).fill("");
+            setUserResponseList(emptyUserResponses);
+            console.log(emptyUserResponses);
+        }
+    }
 
     const showQuizModal = () =>{
         setShowQuiz(true)
@@ -29,10 +40,22 @@ export default function QuizContainer() {
         setShowQuiz(false)
     }
 
+    const logUserResponse = (answer, questionNumber) => {
+
+
+        let userResponsesToBeModified = [...userResponseList];
+        userResponsesToBeModified[questionNumber] = answer;
+        setUserResponseList(userResponsesToBeModified);
+
+        console.log(userResponsesToBeModified);
+        
+
+    }
+
     return (
         <div>
-            
-            <QuizModal questions={questions} show={showQuiz} handleClose={hideQuizModal}/>
+            <QuizButton handleClick = {showQuizModal} />
+            <QuizModal questions={questions} show={showQuiz} handleClose={hideQuizModal} handleClick={logUserResponse}/>
         </div>
     )
 };
