@@ -1,7 +1,7 @@
 const Song = ({song}) => {
 
         return(
-            <div>
+            <div className="playlist-song">
                 <h3>{song.song_name}</h3>
                 <p>{song.artist}</p>
             </div>

@@ -10,6 +10,7 @@ import QuizButton from "../components/quiz/QuizButton";
 import LogoutButton from "../components/LogoutButton"
 import SettingsButton from "../components/SettingsButton"
 import SettingsModal from "../modals/SettingsModal"
+import './UserContainer.css';
 
 
 export default function UserContainer({userID, setUserID}) {
@@ -246,7 +247,7 @@ export default function UserContainer({userID, setUserID}) {
     }
 
     return (
-        <div >
+        <div className="userContainer">
             <LogoutButton setUserID={setUserID}/>
             <SettingsButton handleClick={showSettingsModal}/>
             <SettingsModal handleSubmit={submitSettingsForm} show={showSettings} handleClose={hideSettingsModal} userName={userName} userEmail={userEmail} setUserName={setUserName} setUserEmail={setUserEmail} />
