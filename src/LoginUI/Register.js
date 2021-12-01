@@ -12,7 +12,7 @@ function Register()
         let parameters = {username, email}
         console.warn(parameters)
 
-        let result = await fetch("http://localhost:8000/api/user/register",{
+        let result = await fetch("http://localhost:8080/api/user/register",{
             method: 'POST',
             body:JSON.stringify(parameters),
             headers:{
