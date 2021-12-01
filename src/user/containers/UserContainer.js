@@ -246,7 +246,7 @@ export default function UserContainer({userID, setUserID}) {
     }
 
     return (
-        <>
+        <div >
             <LogoutButton setUserID={setUserID}/>
             <SettingsButton handleClick={showSettingsModal}/>
             <SettingsModal handleSubmit={submitSettingsForm} show={showSettings} handleClose={hideSettingsModal} userName={userName} userEmail={userEmail} setUserName={setUserName} setUserEmail={setUserEmail} />
@@ -254,7 +254,6 @@ export default function UserContainer({userID, setUserID}) {
             <QuizModal handleSubmit={submitQuiz} questions={questions} show={showQuiz} handleClose={hideQuizModal} handleUserResponse={logUserResponse}/>
             <GeneratedPlaylistModal show={showGeneratedPlaylist} handleClose ={hideGeneratedPlaylistModal} generatedPlaylist={generatedPlaylist} playlistNumbers={playlistIds}/>
 
-            <>
                 {playlists.length > 0 ?
                     <div className="playlist-container">
                             <SearchBar searchForSong = {searchForSong} /> 
@@ -265,7 +264,6 @@ export default function UserContainer({userID, setUserID}) {
                     </div>
                 :
                     <p>Loading...</p>}
-            </>
-        </>
+        </div>
     )
 }
