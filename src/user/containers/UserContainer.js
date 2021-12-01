@@ -13,7 +13,8 @@ import SettingsModal from "../modals/SettingsModal"
 
 
 export default function UserContainer({userID, setUserID}) {
-    
+    const [userName, setUserName] = useState(null)
+    const [userEmail, setUserEmail] = useState(null)
     const [playlists, setPlaylists] = useState([]);
     const [playlistIds, setPlaylistIds] = useState([])
     const [filteredPlaylistIds, setFilteredPlaylistIds] = useState([]);
@@ -47,6 +48,18 @@ export default function UserContainer({userID, setUserID}) {
             setPlaylistIds(idArray)
             setFilteredPlaylistIds(idArray);
             console.log(`uo ${idArray}`)
+        });
+        fetch("http://localhost:8080/api/user/allUsers", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+                },
+        })
+        .then(response => response.json())
+        .then(data => {
+            const user = data.filter(user => user.id === userID)
+            setUserName(user.username)
+            setUserEmail(user.email)
         });
     }, []);
 
