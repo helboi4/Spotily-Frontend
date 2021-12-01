@@ -9,7 +9,7 @@ import GeneratedPlaylistModal from '../modals/GeneratedPlaylistModal';
 import QuizButton from "../components/quiz/QuizButton";
 
 
-export default function UserContainer() {
+export default function UserContainer({userID}) {
 
     const [playlists, setPlaylists] = useState([]);
     const [playlistIds, setPlaylistIds] = useState([])
@@ -32,14 +32,21 @@ export default function UserContainer() {
             setPlaylists(data);
             let idArray = [];
             let idObject = {};
-            data.forEach(song => (idObject[song.playlist] = 1))
+            console.log(userID)
+            data.forEach(song => {
+                if(song.userid === userID){
+                (idObject[song.playlist] = 1)
+                }
+            })
             idArray = Object.keys(idObject)
             .map(key => (parseInt(key)));
             setPlaylistIds(idArray)
             setFilteredPlaylistIds(idArray);
             console.log(`uo ${idArray}`)
         });
+    }, []);
 
+    const generateQuiz = () => {
         fetch("http://localhost:8080/api/quiz/getquiz", {
             method: "GET",
             headers: {
@@ -50,9 +57,7 @@ export default function UserContainer() {
             .then(data => {
                 setQuestions(data);
                 initialiseEmptyUserResponseArray(data)})
-
-    }, []);
-
+    }
 
     const fetchPlaylists = () => {
         fetch("http://localhost:8080/playlist", {
@@ -79,23 +84,26 @@ export default function UserContainer() {
 
         const playlistToBeModified = [...filteredPlaylistIds]
 
-        const skippedPlaylist = playlistToBeModified.shift();
-        playlistToBeModified.push(skippedPlaylist);
+        if(playlistToBeModified.length > 0){
 
-        setFilteredPlaylistIds(playlistToBeModified);
+            const skippedPlaylist = playlistToBeModified.shift();
+            playlistToBeModified.push(skippedPlaylist);
 
+            setFilteredPlaylistIds(playlistToBeModified);
+        }
     }
 
     const rewindPlaylist = () => {
 
         const playlistToBeModified = [...filteredPlaylistIds]
 
+        if(playlistToBeModified.length > 0){
 
+            const lastPlaylist = playlistToBeModified.pop();
+            playlistToBeModified.unshift(lastPlaylist);
 
-        const lastPlaylist = playlistToBeModified.pop();
-        playlistToBeModified.unshift(lastPlaylist);
-
-        setFilteredPlaylistIds(playlistToBeModified);
+            setFilteredPlaylistIds(playlistToBeModified);
+        }
     }
 
     function searchForSong(event) {
@@ -133,7 +141,7 @@ export default function UserContainer() {
 
     const submitQuiz = () => {
         const submission = Object.assign({}, questions)
-        submission.userId = 5
+        submission.userId = userID
         submission.answers = userResponseList
         
         console.log(submission)
@@ -153,16 +161,13 @@ export default function UserContainer() {
         .then(data => setGeneratedPlaylist(data))
         .then(()=> {setShowQuiz(false)})
         .then(() => {setShowGeneratedPlaylist(true)})
-        .then(() => {fetchPlaylists()});
-
-        // console.log(generatedPlaylist)
-
-        // setShowQuiz(false)
-        // setShowGeneratedPlaylist(true)
+        .then(() => {fetchPlaylists()})
+        .then(() => {console.log(generatedPlaylist)});
 
     }
 
     const showQuizModal = () =>{
+        generateQuiz()
         setShowQuiz(true)
     }
 
@@ -203,7 +208,7 @@ export default function UserContainer() {
                             <RewindButton handleClick= {rewindPlaylist} />
                             {/* <h1 className="playlist-name">{`Playlist ${filteredPlaylistIds[0]}`}</h1> */}
                             <FastForwardButton handleClick={fastForwardPlaylist}/>
-                            <Playlist playlists = {playlists} playlistIds = {filteredPlaylistIds}/>
+                            <Playlist playlists = {playlists} filteredPlaylistIds = {filteredPlaylistIds} playlistNumbers={playlistIds}/>
                     </div>
                 :
                     <p>Loading...</p>}

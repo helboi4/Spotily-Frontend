@@ -5,13 +5,13 @@ import QuizContainer from './containers/QuizContainer';
 import UserContainer from './containers/UserContainer';
 
 
-function UserPage() {
+function UserPage({userID}) {
     return (
         <div className="user-page">
             <h1>Yo</h1>
                 {/* <QuizContainer/>
                 <PlaylistContainer/>  */}
-                <UserContainer/>
+                <UserContainer userID={userID}/>
         </div>
     )
 }

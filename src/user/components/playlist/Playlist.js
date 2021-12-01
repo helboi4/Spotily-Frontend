@@ -1,18 +1,21 @@
 import Song from "./Song";
 
-const Playlist = ({playlists, playlistIds}) => {
+const Playlist = ({playlists, filteredPlaylistIds, playlistNumbers}) => {
 
 
-    if (playlistIds.length === 0) {
+    if (filteredPlaylistIds.length === 0) {
         return (
+            <>
+            <h1 className="playlist-name">No Playlists</h1>
             <div className="playlist-songs">
-                No playlists with this song
+                No playlists yet!
             </div>
+            </>
         )
     } 
     else {
         const playlistComponents = playlists
-        .filter(song => (song.playlist === playlistIds[0]))
+        .filter(song => (song.playlist === filteredPlaylistIds[0]))
         .map(song => {
             return(
                 <Song className="song" song={song}/>
@@ -21,7 +24,7 @@ const Playlist = ({playlists, playlistIds}) => {
 
         return(
             <>
-                <h1 className="playlist-name">{`Playlist ${playlistIds[0]}`}</h1>
+                <h1 className="playlist-name">{`Playlist ${playlistNumbers.indexOf(filteredPlaylistIds[0]) + 1}`}</h1>
                 <div className="playlist-songs">{playlistComponents}</div> 
             </>
         )

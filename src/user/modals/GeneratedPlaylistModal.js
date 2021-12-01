@@ -22,7 +22,7 @@ const GeneratedPlaylistModal = ({show, handleClose, generatedPlaylist}) => {
     }else{
         return(
             <div className={showHideGeneratedPlaylistModal}>
-                {handleClose()}
+                <h1>BlueChickenFM is the best</h1>
             </div>
         )
     }
