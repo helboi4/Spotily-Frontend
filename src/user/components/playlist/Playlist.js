@@ -3,7 +3,7 @@ import Song from "./Song";
 const Playlist = ({playlists, playlistIds}) => {
 
 
-    if (!playlistIds) {
+    if (playlistIds.length === 0) {
         return (
             <div className="playlist-songs">
                 No playlists with this song
@@ -20,7 +20,10 @@ const Playlist = ({playlists, playlistIds}) => {
         });
 
         return(
-            <div className="playlist-songs">{playlistComponents}</div>
+            <>
+                <h1 className="playlist-name">{`Playlist ${playlistIds[0]}`}</h1>
+                <div className="playlist-songs">{playlistComponents}</div> 
+            </>
         )
 
         
