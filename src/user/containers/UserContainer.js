@@ -71,7 +71,10 @@ export default function UserContainer({userID}) {
             setPlaylists(data);
             let idArray = [];
             let idObject = {};
-            data.forEach(song => (idObject[song.playlist] = 1))
+            data.forEach(song => {
+                if(song.userid === userID){
+                (idObject[song.playlist] = 1)
+                }})
             idArray = Object.keys(idObject)
             .map(key => (parseInt(key)));
             setPlaylistIds(idArray)
