@@ -13,8 +13,8 @@ import SettingsModal from "../modals/SettingsModal"
 
 
 export default function UserContainer({userID, setUserID}) {
-    const [userName, setUserName] = useState(null)
-    const [userEmail, setUserEmail] = useState(null)
+    const [userName, setUserName] = useState()
+    const [userEmail, setUserEmail] = useState()
     const [playlists, setPlaylists] = useState([]);
     const [playlistIds, setPlaylistIds] = useState([])
     const [filteredPlaylistIds, setFilteredPlaylistIds] = useState([]);
@@ -58,10 +58,12 @@ export default function UserContainer({userID, setUserID}) {
         .then(response => response.json())
         .then(data => {
             const user = data.filter(user => user.id === userID)
-            setUserName(user.username)
-            setUserEmail(user.email)
+            const username = user[0].username
+            const email = user[0].email
+            setUserName(username)
+            setUserEmail(email)
         });
-    }, []);
+    }, [userID]);
 
     const generateQuiz = () => {
         fetch("http://localhost:8080/api/quiz/getquiz", {
@@ -223,11 +225,31 @@ export default function UserContainer({userID, setUserID}) {
 
     }
 
+    const submitSettingsForm = () => {
+        const userToSubmit = {
+            "username": userName,
+            "email": userEmail,
+            "admin": false
+        }
+
+        const userToSubmitJSON = JSON.stringify(userToSubmit)
+
+        fetch(`http://localhost:8080/api/user/update/${userID}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+                },
+            body: userToSubmitJSON
+        })
+
+
+    }
+
     return (
         <>
             <LogoutButton setUserID={setUserID}/>
             <SettingsButton handleClick={showSettingsModal}/>
-            <SettingsModal show={showSettings} handleClose={hideSettingsModal} userID={userID} />
+            <SettingsModal handleSubmit={submitSettingsForm} show={showSettings} handleClose={hideSettingsModal} userName={userName} userEmail={userEmail} setUserName={setUserName} setUserEmail={setUserEmail} />
             <QuizButton handleClick = {showQuizModal} />
             <QuizModal handleSubmit={submitQuiz} questions={questions} show={showQuiz} handleClose={hideQuizModal} handleUserResponse={logUserResponse}/>
             <GeneratedPlaylistModal show={showGeneratedPlaylist} handleClose ={hideGeneratedPlaylistModal} generatedPlaylist={generatedPlaylist} playlistNumbers={playlistIds}/>
