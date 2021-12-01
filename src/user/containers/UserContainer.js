@@ -7,9 +7,10 @@ import SearchBar from '../components/playlist/SearchBar';
 import QuizModal from "../modals/QuizModal"
 import GeneratedPlaylistModal from '../modals/GeneratedPlaylistModal';
 import QuizButton from "../components/quiz/QuizButton";
+import LogoutButton from "../components/LogoutButton"
 
 
-export default function UserContainer({userID}) {
+export default function UserContainer({userID, setUserID}) {
 
     const [playlists, setPlaylists] = useState([]);
     const [playlistIds, setPlaylistIds] = useState([])
@@ -200,6 +201,7 @@ export default function UserContainer({userID}) {
 
     return (
         <>
+            <LogoutButton setUserID={setUserID}/>
             <QuizButton handleClick = {showQuizModal} />
             <QuizModal handleSubmit={submitQuiz} questions={questions} show={showQuiz} handleClose={hideQuizModal} handleUserResponse={logUserResponse}/>
             <GeneratedPlaylistModal show={showGeneratedPlaylist} handleClose ={hideGeneratedPlaylistModal} generatedPlaylist={generatedPlaylist} playlistNumbers={playlistIds}/>

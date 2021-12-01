@@ -9,12 +9,13 @@ function App() {
 
   const[userID, setUserID] = useState(2)
 
+
   return (
     <div className="App">
       <Routes>
         {/* <Route path="/" element={<LoginPage/>}/> */}
-        <Route path="/userpage" element={<UserPage userID={userID}/>}/>
-        <Route path="/adminpage" element={<AdminPage/>}/>
+        <Route path="/userpage" element={<UserPage userID={userID} setUserID = {setUserID}/>}/>
+        <Route path="/adminpage" element={<AdminPage userID={userID}/>}/>
       </Routes>
     </div>
   );

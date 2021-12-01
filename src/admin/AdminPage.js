@@ -1,9 +1,10 @@
 import React from 'react'
 
-function AdminPage() {
+function AdminPage({userID}) {
+    console.log({userID});
     return (
         <div>
-            <h1>Hello</h1>
+            <h1>Please Work</h1>
         </div>
     )
 }
