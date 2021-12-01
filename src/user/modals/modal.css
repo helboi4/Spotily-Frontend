@@ -20,6 +20,7 @@
 
 .display-block {
   display: block;
+  overflow:auto;
 }
 
 .display-none {
