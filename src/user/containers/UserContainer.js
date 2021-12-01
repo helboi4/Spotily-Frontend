@@ -199,7 +199,7 @@ export default function UserContainer({userID}) {
         <>
             <QuizButton handleClick = {showQuizModal} />
             <QuizModal handleSubmit={submitQuiz} questions={questions} show={showQuiz} handleClose={hideQuizModal} handleUserResponse={logUserResponse}/>
-            <GeneratedPlaylistModal show={showGeneratedPlaylist} handleClose ={hideGeneratedPlaylistModal} generatedPlaylist={generatedPlaylist}/>
+            <GeneratedPlaylistModal show={showGeneratedPlaylist} handleClose ={hideGeneratedPlaylistModal} generatedPlaylist={generatedPlaylist} playlistNumbers={playlistIds}/>
 
             <>
                 {playlists.length > 0 ?

@@ -1,7 +1,7 @@
 import "./modal.css";
 import Playlist from "../components/playlist/Playlist"
 
-const GeneratedPlaylistModal = ({show, handleClose, generatedPlaylist}) => {
+const GeneratedPlaylistModal = ({show, handleClose, generatedPlaylist, playlistNumbers}) => {
     const showHideGeneratedPlaylistModal= show ? "modal display-block" : "modal display-none";
     
     if(generatedPlaylist.length > 0){
@@ -11,7 +11,7 @@ const GeneratedPlaylistModal = ({show, handleClose, generatedPlaylist}) => {
                 <section classname="modal-main">
                     <button type="button" onClick={handleClose}>Close</button>
                     {generatedPlaylist.length > 0?
-                    <Playlist playlists={generatedPlaylist} playlistIds={generatedPlaylistId}/>
+                    <Playlist playlists={generatedPlaylist} filteredPlaylistIds={generatedPlaylistId} playlistNumbers={playlistNumbers}/>
                     :
                     <p>Playlist failed to generate. Please try again.</p>}
                 
