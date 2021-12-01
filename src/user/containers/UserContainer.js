@@ -8,16 +8,19 @@ import QuizModal from "../modals/QuizModal"
 import GeneratedPlaylistModal from '../modals/GeneratedPlaylistModal';
 import QuizButton from "../components/quiz/QuizButton";
 import LogoutButton from "../components/LogoutButton"
+import SettingsButton from "../components/SettingsButton"
+import SettingsModal from "../modals/SettingsModal"
 
 
 export default function UserContainer({userID, setUserID}) {
-
+    
     const [playlists, setPlaylists] = useState([]);
     const [playlistIds, setPlaylistIds] = useState([])
     const [filteredPlaylistIds, setFilteredPlaylistIds] = useState([]);
     const[questions, setQuestions] = useState();
     const[showQuiz, setShowQuiz] = useState(false);
     const[showGeneratedPlaylist, setShowGeneratedPlaylist] = useState(false);
+    const[showSettings, setShowSettings] = useState(false)
     const[userResponseList, setUserResponseList] = useState([]);
     const[generatedPlaylist, setGeneratedPlaylist] = useState([]);
 
@@ -187,6 +190,14 @@ export default function UserContainer({userID, setUserID}) {
         setShowGeneratedPlaylist(false)
     }
 
+    const showSettingsModal = () => {
+        setShowSettings(true)
+    }
+
+    const hideSettingsModal = () => {
+        setShowSettings(false)
+    }
+
     const logUserResponse = (answer, questionNumber) => {
 
 
@@ -202,6 +213,8 @@ export default function UserContainer({userID, setUserID}) {
     return (
         <>
             <LogoutButton setUserID={setUserID}/>
+            <SettingsButton handleClick={showSettingsModal}/>
+            <SettingsModal show={showSettings} handleClose={hideSettingsModal} userID={userID} />
             <QuizButton handleClick = {showQuizModal} />
             <QuizModal handleSubmit={submitQuiz} questions={questions} show={showQuiz} handleClose={hideQuizModal} handleUserResponse={logUserResponse}/>
             <GeneratedPlaylistModal show={showGeneratedPlaylist} handleClose ={hideGeneratedPlaylistModal} generatedPlaylist={generatedPlaylist} playlistNumbers={playlistIds}/>
