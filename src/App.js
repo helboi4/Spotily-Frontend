@@ -4,7 +4,7 @@ import LoginPage from "./login/LoginPage";
 import AdminPage from "./admin/AdminPage";
 import RegisterPage from "./login/RegisterPage";
 import { useState , useEffect} from 'react';
-import {Routes, Route, Link} from "react-router-dom";
+import {Routes, Route, Link, Navigate} from "react-router-dom";
 
 function App() {
 
