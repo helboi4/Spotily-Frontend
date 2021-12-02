@@ -14,37 +14,3 @@
 }
 
 
- /* .playlist-container {
-    width: 45%;
-    float: right;
-    display: grid;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid #FFFFFF;
-    box-sizing: border-box;
-    grid-template-areas: "search search search"
-                         "back playlist-name next"
-                         "playlist-songs playlist-songs playlist-songs";
-        
-}
-
-.playlist-container > .back {
-    grid-area: back;
-}
-
-.playlist-container > .playlist-name {
-    grid-area: playlist-name;
-}
-
-.playlist-container > .next {
-    grid-area: next;
-} 
-
-.playlist-container > .search {
-    grid-area: search;
-}
-
-.playlist-container > .playlist-songs {
-    grid-area: playlist-songs;
-}
- */
