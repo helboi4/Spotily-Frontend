@@ -13,6 +13,7 @@
                             "photo-area playlist-container";
 }
 
+
 @media only screen and (min-width: 800px){
 .photo-area{
     height: 100vh;
