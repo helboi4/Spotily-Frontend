@@ -8,7 +8,6 @@ const Playlist = ({playlists, filteredPlaylistIds, playlistNumbers}) => {
             <>
             <h1 className="playlist-name">No Playlists</h1>
             <div className="playlist-songs">
-                No playlists yet!
             </div>
             </>
         )
