@@ -41,6 +41,10 @@
   overflow-wrap: normal;
 }
 
+.modal-main p{
+  color: white;
+}
+
 .answer{
   color: white;
   background-color:transparent;
