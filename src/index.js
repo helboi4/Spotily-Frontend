@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
 import './index.css'; 
-import LoginUi from './Login Ui/LoginUi';
+
+
+
 
 ReactDOM.render( 
-    <LoginUi /> ,
+  <Router>
+    <App /> 
+
+  </Router>,
+  
   document.getElementById('root')
 );
  
