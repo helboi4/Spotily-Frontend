@@ -12,8 +12,8 @@ import SettingsButton from "../components/SettingsButton"
 import SettingsModal from "../modals/SettingsModal"
 import './UserContainer.css';
 
-
 export default function UserContainer({userID, setUserID}) {
+
     const [userName, setUserName] = useState()
     const [userEmail, setUserEmail] = useState()
     const [playlists, setPlaylists] = useState([]);
@@ -248,23 +248,29 @@ export default function UserContainer({userID, setUserID}) {
 
     return (
         <div className="userContainer">
-            <LogoutButton setUserID={setUserID}/>
-            <SettingsButton handleClick={showSettingsModal}/>
-            <SettingsModal handleSubmit={submitSettingsForm} show={showSettings} handleClose={hideSettingsModal} userName={userName} userEmail={userEmail} setUserName={setUserName} setUserEmail={setUserEmail} />
-            <QuizButton handleClick = {showQuizModal} />
+            <div className="icon-area">
+                <LogoutButton className="icon-button" setUserID={setUserID}/>
+                <SettingsButton className="icon-button" handleClick={showSettingsModal}/>
+            </div>
+            
+            <div className="photo-area">
+                <div className="logo"></div>
+                <QuizButton handleClick = {showQuizModal} />
+                <SearchBar searchForSong = {searchForSong} />
+            </div>
             <QuizModal handleSubmit={submitQuiz} questions={questions} show={showQuiz} handleClose={hideQuizModal} handleUserResponse={logUserResponse}/>
+            <SettingsModal handleSubmit={submitSettingsForm} show={showSettings} handleClose={hideSettingsModal} userName={userName} userEmail={userEmail} setUserName={setUserName} setUserEmail={setUserEmail} />
             <GeneratedPlaylistModal show={showGeneratedPlaylist} handleClose ={hideGeneratedPlaylistModal} generatedPlaylist={generatedPlaylist} playlistNumbers={playlistIds}/>
-
-                {playlists.length > 0 ?
-                    <div className="playlist-container">
-                            <SearchBar searchForSong = {searchForSong} /> 
-                            <RewindButton handleClick= {rewindPlaylist} />
-                            {/* <h1 className="playlist-name">{`Playlist ${filteredPlaylistIds[0]}`}</h1> */}
-                            <FastForwardButton handleClick={fastForwardPlaylist}/>
-                            <Playlist playlists = {playlists} filteredPlaylistIds = {filteredPlaylistIds} playlistNumbers={playlistIds}/>
-                    </div>
-                :
-                    <p>Loading...</p>}
+                
+            {playlists.length > 0 ?
+                <div className="playlist-container">
+                        <RewindButton handleClick= {rewindPlaylist} />
+                        {/* <h1 className="playlist-name">{`Playlist ${filteredPlaylistIds[0]}`}</h1> */}
+                        <FastForwardButton handleClick={fastForwardPlaylist}/>
+                        <Playlist playlists = {playlists} filteredPlaylistIds = {filteredPlaylistIds} playlistNumbers={playlistIds}/>
+                </div>
+            :
+                <p>Loading...</p>}
         </div>
     )
 }

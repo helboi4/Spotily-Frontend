@@ -1,56 +1,184 @@
-.playlist-container {
-    width: 45%;
-    /* float: right; */
+.userContainer{
     display: grid;
-    /* justify-content: center; */
+    box-sizing: border-box;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    overflow:auto;
+    grid-template-areas:    "photo-area icon-area"
+                            "photo-area playlist-container"
+                            "photo-area playlist-container"
+                            "photo-area playlist-container"
+                            "photo-area playlist-container"
+                            "photo-area playlist-container";
+}
+
+@media only screen and (min-width: 800px){
+.photo-area{
+    height: 100vh;
+    width: auto;
+    grid-area: photo-area;
+    overflow: auto;
+    background-image: url(../components/images/music-6363734_1920_cropped2.jpg);
+    background-size:cover;
+    display: grid;
+    grid-template-areas: "logo logo logo"
+                        "quiz-button . ."
+                        ". . ."
+                        ". . ."
+                        "search-bar search-bar search-bar";
+}
+}
+
+@media only screen and (min-width: 601px) {
+    .photo-area{
+    height: 100vh;
+    width:auto;
+    grid-area: photo-area;
+    background-image: url(../components/images/music-6363734_1280.jpg);
+    background-size:cover;
+    background-position: 50%;
+    display: grid;
+    grid-template-areas: "logo logo logo"
+                        "quiz-button . ."
+                        ". . ."
+                        ". . ."
+                        "search-bar search-bar search-bar";
+    }
+}
+
+.logo{
+    grid-area: logo;
+    height: 1vw;
+}
+
+.quiz-button{
+    grid-area: quiz-button;
+    border-radius: 10px;
+    background: rgba(36, 35, 35, 0.5);
+    color:#FFFFFF;
+    width: 30vw;
+    padding: 1vmax;
+    margin-left: 4em;
+    margin-top: 10em;
+    display: grid;
+    grid-template-areas:    "h1 h1 quiz-icon"
+                            "p p p";
+}
+
+.quiz-button > h1{
+    grid-area: h1;
+    font-size: 3vmax;
+}
+
+.quiz-button > p{
+    grid-area: p;
+    font-size: 2vmax;
+}
+
+.search-bar{
+    grid-area: search-bar;
+    margin-left: 4vw;
+    margin-bottom: 2vw;
+    height: 8vh;
+    width: 50vw;
+    background: rgba(36, 35, 35, 0.5);
+    border-radius: 10px;
+    font-size: 2vmax;
+    padding: 1em;
+}
+
+.icon-area{
+    display: flex;
+    justify-content: flex-end;
+    grid-area: icon-area;
+    display: flex;
+    flex-direction: row;
+    max-height: fit-content;
+}
+
+.icon-button{
+    padding-right: 3vw;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    fill: white;
+    max-width: 40px;
+    height: auto;
+}
+
+.quiz-icon{
+    fill: white;
+    grid-area: quiz-icon;
+}
+
+
+.playlist-container {
+    height: 95vh;
+    width: auto;
+    grid-area: playlist-container;
+    display: grid;
     padding: 0px 10px 0px 10px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid #FFFFFF;
+    background: rgba(36, 35, 35, 0.5);
     box-sizing: border-box;
     grid-template-areas: "search search search"
                          "back playlist-name next"
                          "playlist-songs playlist-songs playlist-songs";
-        
 }
 
-.playlist-container > .rewind {
+.rewind {
     grid-area: back;
     display: flex;
-    align-items: center;
     justify-content: flex-start;
-}
-
-.playlist-container > .playlist-name {
-    grid-area: playlist-name;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    color: white;
 }
 
-.playlist-container > .fastforward {
+@media only screen and (min-width: 1000px){
+    .playlist-name {
+        grid-area: playlist-name;
+        font-size: 3vmax;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+.playlist-name {
+        grid-area: playlist-name;
+        font-size: 2.5vmax;
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+}
+.fastforward {
     grid-area: next;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
+    align-items: center;
 } 
 
-.playlist-container > .search {
-    grid-area: search;
+@media only screen and (min-width: 1000px){
+.playlist-songs {
+    font-size: 1vmax;
+    grid-area: playlist-songs;
+    overflow-y: auto;
+    height: 95%;
+}
 }
 
-.playlist-container > .playlist-songs {
+@media only screen and (max-width: 1000px){
+    .playlist-songs {
+    font-size: 1.75vmax;
     grid-area: playlist-songs;
     overflow-y: auto;
     height: 95%;
 }
 
+
 .playlist-container > .playlist-songs > .playlist-song {
-    /* display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    text-align: left; */
     display: grid;
     grid-template-areas: "cover title title"
                         "cover artist artist";
