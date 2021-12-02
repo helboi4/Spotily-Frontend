@@ -1,6 +1,6 @@
 import AnswerList from "./AnswerList";
 
-const QuestionList = ({questions, handleClick}) => {
+const QuestionList = ({ highlightAnswer, questions, handleClick}) => {
     
     const questionKeys = Object.keys(questions.questionsAndOptions)
 
@@ -8,7 +8,7 @@ const QuestionList = ({questions, handleClick}) => {
             return(
                 <div>
                     <h2>{question}</h2>
-                    <AnswerList questionNumber={index} answers={questions.questionsAndOptions[question]} 
+                    <AnswerList highlightAnswer={highlightAnswer} questionNumber={index} answers={questions.questionsAndOptions[question]} 
                     handleClick={handleClick}/>
                 </div>
             )
