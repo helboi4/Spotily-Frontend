@@ -11,8 +11,8 @@
 .modal-main {
   position:fixed;
   background: rgba(36, 35, 35, 0.8);
-  width: 80%;
-  height: 80%;
+  width: 80vw;
+  height: 80vh;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
@@ -21,7 +21,8 @@
   flex-direction: column;
   justify-items: flex-start;
   align-items: center;
-  overflow:auto;
+  overflow-y:auto;
+  overflow-x:hidden;
   border-radius: 10px;
 }
 
@@ -37,6 +38,7 @@
 .modal-main h2{
   color:white;
   font-size: 2em;
+  overflow-wrap: normal;
 }
 
 .answer{
@@ -47,6 +49,13 @@
   border-radius: 10px;
 }
 
+.question-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
 .answer-chose{
   color: white;
   background-color:rgba(133, 46, 186, 0.882);
@@ -55,9 +64,6 @@
   border-radius: 10px;
 }
 
-.question-list{
-  grid-area: question;
-}
 
 .close-submit{
     border-radius: 10px;
@@ -65,6 +71,11 @@
     color:#FFFFFF;
     margin: 1rem;
     font-size: 1em;
+}
+
+.quiz-image{
+  height:20vh;
+  width: auto;
 }
 
 

@@ -8,6 +8,7 @@ const QuestionList = ({ highlightAnswer, questions, handleClick}) => {
             return(
                 <div>
                     <h2>{question}</h2>
+                    {/* <img className="quiz-image" src={`/images/quiz/${question[0:question.length()-2].toLowerCase()}.jpg`}/> */}
                     <AnswerList highlightAnswer={highlightAnswer} questionNumber={index} answers={questions.questionsAndOptions[question]} 
                     handleClick={handleClick}/>
                 </div>
