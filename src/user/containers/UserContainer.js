@@ -11,9 +11,10 @@ import LogoutButton from "../components/LogoutButton"
 import SettingsButton from "../components/SettingsButton"
 import SettingsModal from "../modals/SettingsModal"
 import './UserContainer.css';
-
+import {Navigate} from "react-router-dom"
 
 export default function UserContainer({userID, setUserID}) {
+
     const [userName, setUserName] = useState()
     const [userEmail, setUserEmail] = useState()
     const [playlists, setPlaylists] = useState([]);
