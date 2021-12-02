@@ -1,3 +1,5 @@
+
+@media only screen and (min-width: 700px){
 .userContainer{
     display: grid;
     box-sizing: border-box;
@@ -11,6 +13,24 @@
                             "photo-area playlist-container"
                             "photo-area playlist-container"
                             "photo-area playlist-container";
+}
+}
+
+@media only screen and (max-width: 700px){
+    .userContainer{
+    display: grid;
+    box-sizing: border-box;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    overflow:auto;
+    grid-template-areas:    "icon-area"
+                            "photo-area"
+                            "photo-area"
+                            "playlist-container"
+                            "playlist-container"
+                            "playlist-container";
+}
 }
 
 @media only screen and (min-width: 800px){
@@ -30,7 +50,7 @@
 }
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 600px) {
     .photo-area{
     height: 100vh;
     width:auto;
@@ -47,11 +67,22 @@
     }
 }
 
+@media only screen and (max-width: 600px){
+    .photo-area{
+    width:auto;
+    grid-area: photo-area;
+    background-image: url(../components/images/music-6363734_640.jpg);
+    background-size:cover;
+    background-position: 50%;
+    }
+}
+
 .logo{
     grid-area: logo;
     height: 1vw;
 }
 
+@media only screen and (min-width: 600px){
 .quiz-button{
     grid-area: quiz-button;
     border-radius: 10px;
@@ -66,15 +97,40 @@
                             "p p p";
 }
 
+.quiz-button > p{
+    grid-area: p;
+    font-size: 2vmax;
+}
+}
+
+@media only screen and (max-width: 600px){
+    .quiz-button{
+    grid-area: quiz-button;
+    border-radius: 10px;
+    background: rgba(36, 35, 35, 0.5);
+    color:#FFFFFF;
+    height: 20vh;
+    width: 80vw;
+    padding: 1vmax;
+    margin-left: 4em;
+    margin-top: 10em;
+    display: grid;
+    grid-template-areas:    "h1 h1 quiz-icon"
+                            "p p p";
+}
+    .quiz-button > p{
+    grid-area: p;
+    font-size: 2vmax;
+    overflow: hidden;
+}
+}
+
 .quiz-button > h1{
     grid-area: h1;
     font-size: 3vmax;
 }
 
-.quiz-button > p{
-    grid-area: p;
-    font-size: 2vmax;
-}
+
 
 .search-bar{
     grid-area: search-bar;
