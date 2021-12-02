@@ -4,7 +4,7 @@
     background-color: transparent;
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow:auto;
     grid-template-areas:    "photo-area icon-area"
                             "photo-area playlist-container"
                             "photo-area playlist-container"
@@ -13,12 +13,13 @@
                             "photo-area playlist-container";
 }
 
-
+@media only screen and (min-width: 800px){
 .photo-area{
-    height: 100%;
-    width:100%;
+    height: 100vh;
+    width: auto;
     grid-area: photo-area;
-    background-image: url(../../images/music-6363734_1920_cropped2.jpg);
+    overflow: auto;
+    background-image: url(../components/images/music-6363734_1920_cropped2.jpg);
     background-size:cover;
     display: grid;
     grid-template-areas: "logo logo logo"
@@ -27,22 +28,37 @@
                         ". . ."
                         "search-bar search-bar search-bar";
 }
+}
+
+@media only screen and (min-width: 601px) {
+    .photo-area{
+    height: 100vh;
+    width:auto;
+    grid-area: photo-area;
+    background-image: url(../components/images/music-6363734_1280.jpg);
+    background-size:cover;
+    background-position: 50%;
+    display: grid;
+    grid-template-areas: "logo logo logo"
+                        "quiz-button . ."
+                        ". . ."
+                        ". . ."
+                        "search-bar search-bar search-bar";
+    }
+}
 
 .logo{
     grid-area: logo;
-    height: 10vw;
+    height: 1vw;
 }
 
 .quiz-button{
     grid-area: quiz-button;
     border-radius: 10px;
     background: rgba(36, 35, 35, 0.5);
-    border-color: white;
     color:#FFFFFF;
-    border-width: 2px;
-    width: 50%;
-    padding: 1em;
-    border-style: solid;
+    width: 30vw;
+    padding: 1vmax;
     margin-left: 4em;
     margin-top: 10em;
     display: grid;
@@ -52,23 +68,23 @@
 
 .quiz-button > h1{
     grid-area: h1;
-    font-size: 200%;
+    font-size: 3vmax;
 }
 
 .quiz-button > p{
     grid-area: p;
-    font-size: 150%;
+    font-size: 2vmax;
 }
 
 .search-bar{
     grid-area: search-bar;
-    margin-left: 4em;
+    margin-left: 4vw;
+    margin-bottom: 2vw;
     height: 8vh;
     width: 50vw;
     background: rgba(36, 35, 35, 0.5);
-    border-color: white;
     border-radius: 10px;
-    font-size: 200%;
+    font-size: 2vmax;
     padding: 1em;
 }
 
@@ -98,11 +114,12 @@
 
 
 .playlist-container {
+    height: 95vh;
+    width: auto;
     grid-area: playlist-container;
     display: grid;
     padding: 0px 10px 0px 10px;
     background: rgba(36, 35, 35, 0.5);
-    border: 2px solid #FFFFFF;
     box-sizing: border-box;
     grid-template-areas: "search search search"
                          "back playlist-name next"
@@ -112,29 +129,54 @@
 .rewind {
     grid-area: back;
     display: flex;
-    align-items: center;
     justify-content: flex-start;
-}
-
-.playlist-name {
-    grid-area: playlist-name;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    color: white;
 }
 
+@media only screen and (min-width: 1000px){
+    .playlist-name {
+        grid-area: playlist-name;
+        font-size: 3vmax;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+.playlist-name {
+        grid-area: playlist-name;
+        font-size: 2.5vmax;
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+}
 .fastforward {
     grid-area: next;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
+    align-items: center;
 } 
 
+@media only screen and (min-width: 1000px){
 .playlist-songs {
+    font-size: 1vmax;
     grid-area: playlist-songs;
     overflow-y: auto;
     height: 95%;
+}
+}
+
+@media only screen and (max-width: 1000px){
+    .playlist-songs {
+    font-size: 1.75vmax;
+    grid-area: playlist-songs;
+    overflow-y: auto;
+    height: 95%;
+}
+
 }
 
 .playlist-song {
@@ -167,4 +209,11 @@
     border-color: rgba(255, 255, 255, 0);
     display: flex;
     align-items: flex-end;
+}
+
+.answer-button{
+  grid-area: quiz-button;
+  border-radius: 10px;
+  background: rgba(36, 35, 35, 0.5);
+  color:#FFFFFF;
 }
