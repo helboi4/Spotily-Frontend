@@ -5,8 +5,7 @@ import UserContainer from './containers/UserContainer';
 
 function UserPage({userID, setUserID}) {
     return (
-        <div className="user-page">
-            <h1>Yo</h1>
+        <div className="userPage">
                 <UserContainer userID={userID} setUserID={setUserID}/>
         </div>
     )
