@@ -48,6 +48,7 @@ if(userInfo.length !== 0) {
 
 
 <MainContainer>
+  <img className="spotily" src="/logo.png" alt="spotily logo" />
   <WelcomeText>Login</WelcomeText>
 
  

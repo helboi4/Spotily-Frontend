@@ -111,6 +111,7 @@
 .quiz-icon{
     fill: white;
     grid-area: quiz-icon;
+    padding-top: 1.8em;
 }
 
 
