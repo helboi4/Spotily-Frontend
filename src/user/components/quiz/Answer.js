@@ -1,6 +1,6 @@
 const Answer = ({answer, questionNumber, handleClick}) => {
     return(
-        <button type="button" className="answer-button" onClick = {() => {handleClick(answer, questionNumber);}}className ="answer">{answer}</button>
+        <button type="button" className="answer" onClick = {() => {handleClick(answer, questionNumber);}}className ="answer">{answer}</button>
     )
 
 }

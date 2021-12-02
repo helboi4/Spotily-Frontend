@@ -9,6 +9,10 @@
     overflow: hidden;
 } 
 
+.answer-button{
+  color: white;
+}
+
 
  /* .playlist-container {
     width: 45%;
