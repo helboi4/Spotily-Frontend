@@ -1,26 +1,122 @@
-.playlist-container {
-    width: 45%;
-    /* float: right; */
+.userContainer{
     display: grid;
-    /* justify-content: center; */
+    box-sizing: border-box;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    grid-template-areas:    "photo-area icon-area"
+                            "photo-area playlist-container"
+                            "photo-area playlist-container"
+                            "photo-area playlist-container"
+                            "photo-area playlist-container"
+                            "photo-area playlist-container";
+}
+
+
+.photo-area{
+    height: 100%;
+    width:100%;
+    grid-area: photo-area;
+    background-image: url(../../images/music-6363734_1920_cropped2.jpg);
+    background-size:cover;
+    display: grid;
+    grid-template-areas: "logo logo logo"
+                        "quiz-button . ."
+                        ". . ."
+                        ". . ."
+                        "search-bar search-bar search-bar";
+}
+
+.logo{
+    grid-area: logo;
+    height: 10vw;
+}
+
+.quiz-button{
+    grid-area: quiz-button;
+    border-radius: 10px;
+    background: rgba(36, 35, 35, 0.5);
+    border-color: white;
+    color:#FFFFFF;
+    border-width: 2px;
+    width: 50%;
+    padding: 1em;
+    border-style: solid;
+    margin-left: 4em;
+    margin-top: 10em;
+    display: grid;
+    grid-template-areas:    "h1 h1 quiz-icon"
+                            "p p p";
+}
+
+.quiz-button > h1{
+    grid-area: h1;
+    font-size: 200%;
+}
+
+.quiz-button > p{
+    grid-area: p;
+    font-size: 150%;
+}
+
+.search-bar{
+    grid-area: search-bar;
+    margin-left: 4em;
+    height: 8vh;
+    width: 50vw;
+    background: rgba(36, 35, 35, 0.5);
+    border-color: white;
+    border-radius: 10px;
+    font-size: 200%;
+    padding: 1em;
+}
+
+.icon-area{
+    display: flex;
+    justify-content: flex-end;
+    grid-area: icon-area;
+    display: flex;
+    flex-direction: row;
+    max-height: fit-content;
+}
+
+.icon-button{
+    padding-right: 3vw;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    fill: white;
+    max-width: 40px;
+    height: auto;
+}
+
+.quiz-icon{
+    fill: white;
+    grid-area: quiz-icon;
+}
+
+
+.playlist-container {
+    grid-area: playlist-container;
+    display: grid;
     padding: 0px 10px 0px 10px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(36, 35, 35, 0.5);
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     grid-template-areas: "search search search"
                          "back playlist-name next"
                          "playlist-songs playlist-songs playlist-songs";
-        
 }
 
-.playlist-container > .rewind {
+.rewind {
     grid-area: back;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
-.playlist-container > .playlist-name {
+.playlist-name {
     grid-area: playlist-name;
     display: flex;
     align-items: center;
@@ -28,24 +124,20 @@
     color: white;
 }
 
-.playlist-container > .fastforward {
+.fastforward {
     grid-area: next;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 } 
 
-.playlist-container > .search {
-    grid-area: search;
-}
-
-.playlist-container > .playlist-songs {
+.playlist-songs {
     grid-area: playlist-songs;
     overflow-y: auto;
     height: 95%;
 }
 
-.playlist-container > .playlist-songs > .playlist-song {
+.playlist-song {
     display: flex;
     flex-direction: column;
     align-items: stretch;
