@@ -28,8 +28,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage userID={userID} setUserID = {setUserID} setData= {setData}/>}/>
         <Route path="/registerpage" element={<RegisterPage />}/>
-        <Route path="/userpage" element={<UserPage userID={userID} setUserID = {setUserID} getData={getData}/>}/>
-        <Route path="/adminpage" element={<AdminPage userID={userID}/>}/>
+        <Route path="/userpage" element={userID == null ? <Navigate replace to="/"/> :<UserPage userID={userID} setUserID = {setUserID} getData={getData}/>}/>
+        <Route path="/adminpage" element={userID == null ? <Navigate replace to="/"/> : <AdminPage userID={userID}/>}/>
       </Routes>
     </div>
   );
