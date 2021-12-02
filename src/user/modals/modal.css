@@ -1,5 +1,5 @@
 
-.modal {
+/* .modal {
   position:fixed;
   top: 0;
   left: 0;
@@ -26,4 +26,155 @@
 
 .display-none {
   display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal-main-settings {
+  display: grid;
+  grid-template-areas: "close-button"
+                       "user-icon"
+                       "username-settings"
+                       "email-settings"
+                       "submit-button";
+ 
+  background: white;
+  width: 50%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.close-button {
+  grid-area: close-button;
+  width: 50%;
+  
+}
+
+.user-icon {
+  grid-area: user-icon;
+}
+
+.user-name-settings {
+  grid-area: username-settings;
+}
+
+.email-settings {
+  grid-area: email-settings;
+}
+
+.submit-button {
+  grid-area: submit-button;
+} */
+
+
+.modal {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main-settings {
+  position:fixed;
+  background: rgba(36, 35, 35, 0.8);
+  width: 80%;
+  height: 60%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  align-items: center;
+  overflow:auto;
+  border-radius: 10px;
+}
+
+.display-block {
+  display: block;
+  overflow:auto;
+}
+
+.display-none {
+  display: none;
+}
+
+.modal-main h2{
+  color:white;
+  font-size: 2em;
+}
+
+.answer{
+  color: white;
+  background-color:transparent;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.question-list{
+  grid-area: question;
+}
+
+.close-submit{
+    border-radius: 10px;
+    background:transparent;
+    color:#FFFFFF;
+    margin: 1rem;
+    font-size: 1em;
+}
+
+
+.settings-form{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-icon, .username-settings, 
+.email-settings, .submit-button  {
+  padding: 10px;
+  color:#FFFFFF;
+  
+} 
+
+.close-button, .submit-button {
+  border-radius: 10px;
+    background:transparent;
+    color:#FFFFFF;
+    margin: 1rem;
+    font-size: 1em;
 }

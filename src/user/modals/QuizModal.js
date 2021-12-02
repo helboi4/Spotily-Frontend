@@ -10,7 +10,7 @@ const QuizModal = ({handleSubmit, questions, show, handleClose, handleUserRespon
 
     return (
         <div className={showHideQuizModal}>
-            <section classname="modal-main">
+            <section className="modal-main">
                 <button type="button" onClick={handleClose}>Close</button>
                 {questions && questions.questionsAndOptions ?
                 <QuestionList questions={questions} handleClick={handleUserResponse}/>
