@@ -12,7 +12,7 @@ import SettingsButton from "../components/SettingsButton"
 import SettingsModal from "../modals/SettingsModal"
 import './UserContainer.css';
 
-export default function UserContainer({userID, setUserID}) {
+export default function UserContainer({userID, setUserID, getData}) {
 
     const [userName, setUserName] = useState()
     const [userEmail, setUserEmail] = useState()
@@ -40,7 +40,7 @@ export default function UserContainer({userID, setUserID}) {
             let idObject = {};
             console.log(userID)
             data.forEach(song => {
-                if(song.userid === userID){
+                if(song.userid === getData()){
                 (idObject[song.playlist] = 1)
                 }
             })
@@ -58,13 +58,13 @@ export default function UserContainer({userID, setUserID}) {
         })
         .then(response => response.json())
         .then(data => {
-            const user = data.filter(user => user.id === userID)
+            const user = data.filter(user => user.id === getData())
             const username = user[0].username
             const email = user[0].email
             setUserName(username)
             setUserEmail(email)
         });
-    }, [userID]);
+    }, [getData()]);
 
     const generateQuiz = () => {
         fetch("http://localhost:8080/api/quiz/getquiz", {
