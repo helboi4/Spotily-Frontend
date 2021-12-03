@@ -34,7 +34,7 @@ The server-side project used Spring Boot, Java and SQL. For our client-side proj
 
 ## How to use
 
-First, clone the Spotily repo linked above (instructions for how to do this on Spotily's repo). Then, clone this repo and insure the necessary dependencies have been added. 'npm start' in the terminal should then run the React app on localhost:3000.
+First, clone the Spotily repo linked above (instructions for how to do this on Spotily's repo). Then, clone this repo and insure the necessary dependencies have been added by using the command 'npm install'. 'npm start' in the terminal should then run the React app on localhost:3000.
 
 
 ## Credits
