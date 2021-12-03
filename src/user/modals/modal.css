@@ -78,8 +78,11 @@
 }
 
 .quiz-image{
-  height:20vh;
-  width: auto;
+  height: 15em;
+    width: auto;
+    padding-left: 2px;
+    padding-right: 5px;
+    border-radius: 10%;
 }
 
 
