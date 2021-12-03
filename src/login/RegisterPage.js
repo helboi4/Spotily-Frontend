@@ -1,29 +1,42 @@
 import React, {useState, useEffect} from 'react'
+import { useRef } from "react";
+import './Register.css'
 import {useNavigate} from 'react-router-dom'
+import Snackbar from "./components/snackbar/Snackbar";
 
+const SnackbarType = {
+    success: "success",
+    fail: "fail",
+  };
 
 
 function Register()
-
 {
-    const navigate =useNavigate();
+    const snackbarRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(localStorage.getItem('user-info')){
-        navigate.push("/registerpage")
+        navigate("/registerpage")
          };
        }, [navigate]);
     const [username, setUserName] =useState ("")
     const [email, setEmail] = useState("")
    
-   // const [password, setPassword] = useState("")
-    // const navigate =useNavigate();
 
+   
+   
+   // const [password, setPassword] = useState("")
+
+    function logout(){
+        localStorage.clear();
+        navigate('/')
+    }
     async function signUp() {
         let parameters = {username, email}
         console.warn(parameters)
 
-        let result = await fetch("http://localhost:8080/api/user/register",{
+        let results = await fetch("http://localhost:8080/api/user/register",{
             method: 'POST',
             body:JSON.stringify(parameters),
             headers:{
@@ -31,24 +44,47 @@ function Register()
                 "Accept":'application/json'
         }
     })
-    result = await result.json()
-    localStorage.setItem("user-info", JSON.stringify(result))
-    navigate("/userpage", { replace: true });
+
+    results = await results.json()
+    localStorage.setItem("user-info", JSON.stringify(results))
+    navigate("/userpage", {replace: true});
+   
 }      
     return(
-        <div className="container">
-            <h1>Create Account</h1>
-            <input type= "text" value={username} onChange ={(e)=>setUserName(e.target.value)} className="form-control" placeholder="please enter a username"/>
-            <br /> 
-            <input type= "text" value={email} onChange ={(e)=>setEmail(e.target.value)} className="form-control" placeholder="please enter an email"/> 
-            <br /> 
+        <div className="register-page">
+            <img className="spotily" src="/logo.png" alt="spotily logo" />
+<div className="main-container">
+<h1>Create Account</h1>
 
-            {/* <input type= "password" value={password} onChange ={(e)=>setPassword(e.target.value)}className="form-control" placeholder="please enter a password"/>  */}
-            <br /> 
-            <button onClick ={signUp} className="register-button">Register</button>
+<div className = "input-container">
+<input type= "text" value={username} onChange ={(e)=>setUserName(e.target.value)} className="form-control" placeholder="Please enter a username"/>
+<br /> 
+<input type= "text" value={email} onChange ={(e)=>setEmail(e.target.value)} className="form-control" placeholder="Please enter an email"/> 
+<br /> 
+</div>
+<div className = "button-container"> 
+<button className = "register-button"   onClick={() => {
+          signUp(); snackbarRef.current.show();
+        }}>Register</button>
+
+    <Snackbar
+        ref={snackbarRef}
+        message="Registration Successful!"
+        type={SnackbarType.success}
+      />
+
+ <button onClick={logout} className="login-button">back to login</button>
+ 
+
+<br /> 
+
+
         </div>
+        </div>
+        </div>
+        
     )
-
+   
 
     }
     export default Register

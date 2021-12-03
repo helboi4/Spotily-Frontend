@@ -1,9 +1,9 @@
 import Answer from "./Answer";
 
-const AnswerList = ({answers, questionNumber, handleClick}) => {
+const AnswerList = ({highlightAnswer, answers, questionNumber, handleClick}) => {
         const answerComponents = answers.map( (answer, index) => {
             return(
-                <Answer key={index} answer = {answer} questionNumber={questionNumber} handleClick={handleClick}/>
+                <Answer highlightAnswer={highlightAnswer} key={index} answer = {answer} questionNumber={questionNumber} handleClick={handleClick}/>
             )
         })
         

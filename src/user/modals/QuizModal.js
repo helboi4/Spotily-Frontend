@@ -1,24 +1,23 @@
 import QuestionList from "../components/quiz/QuestionList"
 import "./modal.css";
+import { useState } from "react";
 
-const QuizModal = ({handleSubmit, questions, show, handleClose, handleUserResponse}) => {
-
-    console.log(questions);
+const QuizModal = ({highlightAnswer, unHighlight, handleSubmit, questions, show, handleClose, handleUserResponse}) => {
 
     const showHideQuizModal= show ? "modal display-block" : "modal display-none";
-
+    
 
     return (
         <div className={showHideQuizModal}>
-            <section classname="modal-main">
-                <button type="button" onClick={handleClose}>Close</button>
+            <section className="modal-main">
+                <button className="close-submit" type="button" onClick={handleClose}>Close</button>
                 {questions && questions.questionsAndOptions ?
-                <QuestionList questions={questions} handleClick={handleUserResponse}/>
+                <QuestionList highlightAnswer={highlightAnswer} questions={questions} handleClick={handleUserResponse}/>
                 :
                 <p>Quiz not found. Please try again.</p>}
-            
+                <button className="close-submit" onClick={function(event){handleSubmit(); unHighlight()}} type="button">Submit</button>
             </section>
-            <button onClick={handleSubmit} type="button">Submit</button>
+            
         </div>
 
     )

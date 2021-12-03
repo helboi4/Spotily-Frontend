@@ -9,4 +9,16 @@
     overflow: hidden;
 } 
 
+.spotily {
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 48px;
+    position: absolute;
+}
+
+
+.answer-button{
+  color: white;
+}
+
 

@@ -10,14 +10,21 @@
 
 .modal-main {
   position:fixed;
-  background: white;
-  width: 80%;
-  height: auto;
+  background: rgba(36, 35, 35, 0.8);
+  width: 80vw;
+  height: 80vh;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-}
 
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  align-items: center;
+  overflow-y:auto;
+  overflow-x:hidden;
+  border-radius: 10px;
+}
 
 .display-block {
   display: block;
@@ -26,4 +33,103 @@
 
 .display-none {
   display: none;
+}
+
+
+
+.modal {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main-settings {
+  position:fixed;
+  background: rgba(36, 35, 35, 0.8);
+  width: 80%;
+  height: 60%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  align-items: center;
+  overflow:auto;
+  border-radius: 10px;
+}
+
+.modal-main h2{
+  color:white;
+  font-size: 2em;
+  overflow-wrap: normal;
+}
+
+.modal-main p{
+  color: white;
+}
+
+.answer{
+  color: white;
+  background-color:transparent;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.question-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
+.answer-chose{
+  color: white;
+  background-color:rgba(133, 46, 186, 0.882);
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.close-submit{
+    border-radius: 10px;
+    background:transparent;
+    color:#FFFFFF;
+    margin: 1rem;
+    font-size: 1em;
+}
+
+.settings-form{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-icon, .username-settings, 
+.email-settings, .submit-button  {
+  padding: 10px;
+  color:#FFFFFF;
+  
+} 
+
+.close-button, .submit-button {
+  border-radius: 10px;
+    background:transparent;
+    color:#FFFFFF;
+    margin: 1rem;
+    font-size: 1em;
+}
+
+.quiz-image{
+  height: 15em;
+    width: auto;
+    padding-left: 2px;
+    padding-right: 5px;
+    border-radius: 10%;
 }

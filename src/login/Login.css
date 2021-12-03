@@ -13,6 +13,16 @@
   font-family: "Raleway", sans-serif;
 }
 
+.spotily {
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 48px;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
 
 .main-container{
   
@@ -75,7 +85,7 @@
   width: 100%;
 }
 .button-container{
-  margin: 1rem 0 2rem 0;
+  margin: 1rem 1rem 2rem 1rem;
   width: 100%;
   display: flex;
   align-items: center;
@@ -119,6 +129,11 @@
   color: white;
   border-radius: 2rem;
   cursor: pointer;
+  margin: 1rem;
+}
+
+.login-page .button-container {
+  margin: 2rem;
 }
 
 .login-page a{
