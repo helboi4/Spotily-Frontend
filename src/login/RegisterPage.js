@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useRef } from "react";
-// import './Register.css'
+import './Register.css'
 import {useNavigate} from 'react-router-dom'
 import Snackbar from "./components/snackbar/Snackbar";
 
@@ -51,34 +51,37 @@ function Register()
    
 }      
     return(
-    
+        <div className="register-page">
+            <img className="spotily" src="/logo.png" alt="spotily logo" />
 <div className="main-container">
 <h1>Create Account</h1>
-<div className = "input-container">  
+
+<div className = "input-container">
 <input type= "text" value={username} onChange ={(e)=>setUserName(e.target.value)} className="form-control" placeholder="Please enter a username"/>
 <br /> 
 <input type= "text" value={email} onChange ={(e)=>setEmail(e.target.value)} className="form-control" placeholder="Please enter an email"/> 
 <br /> 
 </div>
-
+<div className = "button-container"> 
 <button className = "register-button"   onClick={() => {
           signUp(); snackbarRef.current.show();
         }}>Register</button>
-    
+
     <Snackbar
         ref={snackbarRef}
         message="Registration Successful!"
         type={SnackbarType.success}
       />
-<div className = "button-container"> 
+
  <button onClick={logout} className="login-button">back to login</button>
- </div>
+ 
 
 <br /> 
 
-    
-        </div>
 
+        </div>
+        </div>
+        </div>
         
     )
    
