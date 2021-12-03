@@ -50,6 +50,7 @@ First, clone the Spotily repo linked above (instructions for how to do this on S
 ## Credits
 
 [add github accounts]
+https://github.com/helboi4
 
 Thank-you for trainers Colin and Iain for their help on this project. And a special mention to Jonathon, for some last minute debugging!
 
