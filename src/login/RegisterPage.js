@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useRef } from "react";
-import './Register.css'
-import {useHistory} from 'react-router-dom'
-import Snackbar from "./snackbar/Snackbar";
+// import './Register.css'
+import {useNavigate} from 'react-router-dom'
+import Snackbar from "./components/snackbar/Snackbar";
 
 const SnackbarType = {
     success: "success",
@@ -13,13 +13,13 @@ const SnackbarType = {
 function Register()
 {
     const snackbarRef = useRef(null);
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(localStorage.getItem('user-info')){
-        history.push("/register")
+        navigate("/registerpage")
          };
-       }, []);
+       }, [navigate]);
     const [username, setUserName] =useState ("")
     const [email, setEmail] = useState("")
    
@@ -27,11 +27,10 @@ function Register()
    
    
    // const [password, setPassword] = useState("")
-    const history =useHistory();
 
     function logout(){
         localStorage.clear();
-        history.push('/login')
+        navigate('/')
     }
     async function signUp() {
         let parameters = {username, email}
@@ -48,7 +47,7 @@ function Register()
 
     results = await results.json()
     localStorage.setItem("user-info", JSON.stringify(results))
-    history.push("/home")
+    navigate("/userpage", {replace: true});
    
 }      
     return(

@@ -46,12 +46,12 @@ return (
 
 
 <div className="login-page">
+  <img className="spotily" src="/logo.png" alt="spotily logo" />
   <div className="main-container">
 
 
-<MainContainer>
-  <img className="spotily" src="/logo.png" alt="spotily logo" />
-  <WelcomeText>Login</WelcomeText>
+{/* <MainContainer> */}
+  
     <h1>Login</h1>
 
   
@@ -73,9 +73,10 @@ return (
 
 
 
-
+  {/* </MainContainer> */}
   </div>
 </div>
+
 );
 } 
 
