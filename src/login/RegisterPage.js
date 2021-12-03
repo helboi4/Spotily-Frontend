@@ -37,15 +37,15 @@ function Register()
 }      
     return(
         <div className="container">
-<h1>Create Account</h1>
-<input type= "text" value={username} onChange ={(e)=>setUserName(e.target.value)} className="form-control" placeholder="please enter a username"/>
-<br /> 
-<input type= "text" value={email} onChange ={(e)=>setEmail(e.target.value)} className="form-control" placeholder="please enter an email"/> 
-<br /> 
+            <h1>Create Account</h1>
+            <input type= "text" value={username} onChange ={(e)=>setUserName(e.target.value)} className="form-control" placeholder="please enter a username"/>
+            <br /> 
+            <input type= "text" value={email} onChange ={(e)=>setEmail(e.target.value)} className="form-control" placeholder="please enter an email"/> 
+            <br /> 
 
-{/* <input type= "password" value={password} onChange ={(e)=>setPassword(e.target.value)}className="form-control" placeholder="please enter a password"/>  */}
-<br /> 
-<button onClick ={signUp} className="register-button">Register</button>
+            {/* <input type= "password" value={password} onChange ={(e)=>setPassword(e.target.value)}className="form-control" placeholder="please enter a password"/>  */}
+            <br /> 
+            <button onClick ={signUp} className="register-button">Register</button>
         </div>
     )
 

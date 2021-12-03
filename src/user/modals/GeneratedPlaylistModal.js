@@ -9,7 +9,7 @@ const GeneratedPlaylistModal = ({show, handleClose, generatedPlaylist, playlistN
         return (
             <div className={showHideGeneratedPlaylistModal}>
                 <section classname="modal-main">
-                    <button type="button" onClick={handleClose}>Close</button>
+                    <button className="close-submit" type="button" onClick={handleClose}>Close</button>
                     {generatedPlaylist.length > 0?
                     <Playlist playlists={generatedPlaylist} filteredPlaylistIds={generatedPlaylistId} playlistNumbers={playlistNumbers}/>
                     :

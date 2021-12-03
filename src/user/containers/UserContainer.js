@@ -25,6 +25,7 @@ export default function UserContainer({userID, setUserID, getData}) {
     const[showSettings, setShowSettings] = useState(false)
     const[userResponseList, setUserResponseList] = useState([]);
     const[generatedPlaylist, setGeneratedPlaylist] = useState([]);
+    const[highlightAnswer, setHighlightAnswer] = useState(true)
 
     useEffect(() => { 
         fetch("http://localhost:8080/playlist", {
@@ -246,6 +247,15 @@ export default function UserContainer({userID, setUserID, getData}) {
 
     }
 
+
+    const unHighlight = () => {
+        setHighlightAnswer(false);
+    }
+
+    const highlight = () => {
+        setHighlightAnswer(true);
+    }
+
     return (
         <div className="userContainer">
             <div className="icon-area">
@@ -255,10 +265,10 @@ export default function UserContainer({userID, setUserID, getData}) {
             
             <div className="photo-area">
                 <div className="logo"></div>
-                <QuizButton handleClick = {showQuizModal} />
+                <QuizButton handleClick = {function(event){showQuizModal(); highlight()}} />
                 <SearchBar searchForSong = {searchForSong} />
             </div>
-            <QuizModal handleSubmit={submitQuiz} questions={questions} show={showQuiz} handleClose={hideQuizModal} handleUserResponse={logUserResponse}/>
+            <QuizModal highlightAnswer={highlightAnswer} unHighlight={unHighlight} handleSubmit={submitQuiz} questions={questions} show={showQuiz} handleClose={hideQuizModal} handleUserResponse={logUserResponse}/>
             <SettingsModal handleSubmit={submitSettingsForm} show={showSettings} handleClose={hideSettingsModal} userName={userName} userEmail={userEmail} setUserName={setUserName} setUserEmail={setUserEmail} />
             <GeneratedPlaylistModal show={showGeneratedPlaylist} handleClose ={hideGeneratedPlaylistModal} generatedPlaylist={generatedPlaylist} playlistNumbers={playlistIds}/>
                 
