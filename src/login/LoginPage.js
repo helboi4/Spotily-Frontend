@@ -49,6 +49,9 @@ return (
   <div className="main-container">
 
 
+<MainContainer>
+  <img className="spotily" src="/logo.png" alt="spotily logo" />
+  <WelcomeText>Login</WelcomeText>
     <h1>Login</h1>
 
   

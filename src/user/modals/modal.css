@@ -35,6 +35,34 @@
   display: none;
 }
 
+
+
+.modal {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main-settings {
+  position:fixed;
+  background: rgba(36, 35, 35, 0.8);
+  width: 80%;
+  height: 60%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  align-items: center;
+  overflow:auto;
+  border-radius: 10px;
+}
+
 .modal-main h2{
   color:white;
   font-size: 2em;
@@ -68,9 +96,30 @@
   border-radius: 10px;
 }
 
-
 .close-submit{
     border-radius: 10px;
+    background:transparent;
+    color:#FFFFFF;
+    margin: 1rem;
+    font-size: 1em;
+}
+
+.settings-form{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-icon, .username-settings, 
+.email-settings, .submit-button  {
+  padding: 10px;
+  color:#FFFFFF;
+  
+} 
+
+.close-button, .submit-button {
+  border-radius: 10px;
     background:transparent;
     color:#FFFFFF;
     margin: 1rem;
@@ -84,5 +133,3 @@
     padding-right: 5px;
     border-radius: 10%;
 }
-
-

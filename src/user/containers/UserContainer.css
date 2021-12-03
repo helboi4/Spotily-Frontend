@@ -33,6 +33,7 @@
 }
 }
 
+
 @media only screen and (min-width: 800px){
 .photo-area{
     height: 100vh;
@@ -167,6 +168,7 @@
 .quiz-icon{
     fill: white;
     grid-area: quiz-icon;
+    padding-top: 1.8em;
 }
 
 
@@ -178,9 +180,11 @@
     padding: 0px 10px 0px 10px;
     background: rgba(36, 35, 35, 0.5);
     box-sizing: border-box;
-    grid-template-areas: "search search search"
+    grid-template-areas: 
                          "back playlist-name next"
                          "playlist-songs playlist-songs playlist-songs";
+    align-items: flex-start;
+
 }
 
 .rewind {
@@ -188,6 +192,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding-top: 1em;
 }
 
 @media only screen and (min-width: 1000px){
@@ -196,7 +201,7 @@
         font-size: 3vmax;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         color: white;
     }
 }
@@ -207,6 +212,7 @@
         font-size: 2.5vmax;
         display: flex;
         justify-content: center;
+        align-items: flex-start;
         color: white;
     }
 }
@@ -215,6 +221,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding-top: 1em;
 } 
 
 @media only screen and (min-width: 1000px){
@@ -223,6 +230,7 @@
     grid-area: playlist-songs;
     overflow-y: auto;
     height: 95%;
+    padding-left: 1em;
 }
 }
 
@@ -232,9 +240,14 @@
     grid-area: playlist-songs;
     overflow-y: auto;
     height: 95%;
+    padding-left: 2em;
 }
 }
 
+.playlist-song:hover, .search-bar:hover, .quiz-button:hover , 
+.rewind:hover , .fastforward:hover, .icon-button:hover {
+    transform: scale(1.05);
+}
 
 .playlist-container > .playlist-songs > .playlist-song {
     display: grid;
@@ -253,6 +266,7 @@
     vertical-align: text-bottom;
     margin-bottom: 0.1em;
     padding-top: 0px;
+    font-size: 18px;
 
 }
 
@@ -262,6 +276,7 @@
     grid-area: artist;
     padding-left: 5px;
     margin-top: 0.1em;
+    font-size: 14px;
 }
 
 
@@ -282,7 +297,7 @@
     height: 96px;
     width: 96px;
     grid-area: cover;
-    padding-left: 2px;
+    padding-left: 10px;
     padding-right: 5px;
     border-radius: 10%;
 }
