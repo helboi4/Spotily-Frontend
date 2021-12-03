@@ -26,9 +26,19 @@ Extension to the minimum viable product:
 
 The initial page design was done with Figma. Images of the pages can be seen below:
 
+![Screenshot 2021-12-03 at 10 04 47](https://user-images.githubusercontent.com/83702748/144584578-820c768a-3084-4d89-ba91-c5c95994d20f.png)
 
 
-##Tech Stack
+![Screenshot 2021-12-03 at 10 05 04](https://user-images.githubusercontent.com/83702748/144584630-7c47701c-b1bc-4286-aa19-a8dc82107819.png)
+
+
+![Screenshot 2021-12-03 at 10 05 42](https://user-images.githubusercontent.com/83702748/144584658-8b32fe8a-d586-48e5-80e7-9b2d8036c679.png)
+
+
+![Screenshot 2021-12-03 at 10 05 55](https://user-images.githubusercontent.com/83702748/144584686-2ccc95bf-815b-44be-8eda-4c269b54c98a.png)
+
+
+## Tech Stack
 
 The server-side project used Spring Boot, Java and SQL. For our client-side project, we used a React framework for the front-end alongside JavaScript and CSS. 
 
